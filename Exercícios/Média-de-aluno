@@ -1,0 +1,31 @@
+algoritmo "semnome"
+var
+   N1, N2:inteiro
+   Med:Real
+inicio
+      Escreval("------------------------------")
+      Escreval("     ESCOLA VIRA-LATA         ")
+      Escreval("------------------------------")
+      Escreval("Digite a primeria nota: ")
+      Leia(N1)
+      Escreval("Digite a segunda nota: ")
+      Leia(N2)
+      Med <- (N1+N2)/2
+      Se (Med>=7) entao
+         Escreval("----------------------")
+         Escreval(" A MÉDIA É: ", Med)
+         Escreval(" ALUNO APROVADO ")
+         Escreval("----------------------")
+      senao
+           Se (Med>=5) e (Med<7) entao
+              Escreval("----------------------")
+              Escreval(" A MÉDIA É: ", Med)
+              Escreval(" Aluno em RECUPERAÇÃO ")
+      Senao
+           Escreval("----------------------")
+           Escreval(" A MÉDIA É: ", Med)
+           Escreval(" ALUNO REPROVADO ")
+           Escreval("----------------------")
+           Fimse
+      Fimse
+fimalgoritmo

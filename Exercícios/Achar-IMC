@@ -1,0 +1,37 @@
+algoritmo "Calcular o IMC"
+var
+   P, A, Imc:Real
+inicio
+      Escreval("Qual o seu peso? ")
+      leia(P)
+      Escreval("Qual a sua altura? ")
+      Leia(A)
+      Imc <- P/(A^2)
+      Se (Imc<17) entao
+             Escreval("Seu IMC é ", Imc:5:2, " Você está muito abaixo do  peso ")
+           Senão
+                Se (Imc>17)  e (Imc<18.5) entao
+                   Escreval("Seu IMC é ", Imc:5:2, " Você está abaixo do peso")
+                Senao
+                     Se (Imc>=18.5) e (Imc<=25) entao
+                        Escreval("Seu IMC é ", Imc:5:2, " Você está no seu peso ideal ")
+                     Senao
+                          Se (Imc>25) e  (Imc<30) entao
+                             Escreval("Seu IMC é ", Imc:5:2, " Você está sobrepeso")
+                          Senão
+                               Se (Imc>30) e (Imc<35) entao
+                                  Escreval("Seu IMC é ", Imc:5:2, " Você está obeso")
+                               Senão
+                                    Se (Imc>35) e (Imc<40) entao
+                                       Escreval("Seu IMC é ", Imc:5:2, " Você está em obesidade severa")
+                                    Senão
+                                         Se (Imc>40) entao
+                                            Escreval("Seu IMC é ", Imc:5:2," Você está em obesidade morbida")
+                                    Fimse
+                               Fimse
+                          Fimse
+                     Fimse
+                Fimse
+           Fimse
+      Fimse
+fimalgoritmo

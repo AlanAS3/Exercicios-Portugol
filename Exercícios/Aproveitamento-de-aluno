@@ -1,0 +1,36 @@
+algoritmo "Aproveitamento do aluno"
+var
+   N1, N2, Med:Real
+inicio
+      Escreval("---------------------------")
+      Escreval("  APROVEITAMENTO DO ALUNO  ")
+      Escreval("---------------------------")
+      Escreval("Digite a primeira nota do aluno: ")
+      Leia(N1)
+      Escreval("Digite a segunda nota do aluno: ")
+      Leia(N2)
+      Med <- (N1 + N2) /2
+      Se (Med>= 9) entao
+         Escreval("Aproveitamento do aluno: A ")
+      Senao
+           Se (Med>=8) e (Med<9)entao
+              Escreval("Apoveitmaneto do aluno: B ")
+           Senao
+                Se (Med>=7) e (Med<8) entao
+                   Escreval("Aproveitamento do aluno: C ")
+                Senao
+                     Se (Med>=6) e (Med<7) entao
+                        Escreval("Aproveitamento do aluno: D")
+                     Senao
+                          Se (Med>=5) e (Med<6) entao
+                             Escreval("Aproveitamento do aluno: E")
+                          Senao
+                               Se (Med<5) entao
+                                  Escreval("Aproveitamento do aluno: F")
+                               Fimse
+                          Fimse
+                     Fimse
+                Fimse
+           Fimse
+      Fimse
+fimalgoritmo
