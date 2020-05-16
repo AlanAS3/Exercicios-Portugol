@@ -1,0 +1,31 @@
+algoritmo "Quantos anos você tem? "
+var
+   AH, MH, DH, AN, MN, DN, I: Inteiro
+inicio
+      Escreval("---------------------------")
+      Escreval("    DESCUBRA A SUA IDADE   ")
+      Escreval("---------------------------")
+      Escreval("Qual o ano de hoje? (yyyy) ")
+      leia (AH)
+      Escreval("Qual o mês de hoje? (yy) ")
+      Leia (MH)
+      Escreval("Qual o dia de hoje? (yy) ")
+      Leia (DH)
+      Escreval("Qual o ano em que você nasceu? (yyyy) ")
+      Leia (AN)
+      Escreval("Qual o mês em que você nasceu? (yy) ")
+      Leia (MN)
+      Escreval("Qual o dia em que você nasceu? (yy) ")
+      Leia (DN)
+      I <- AH-AN
+      Se (MN>MH) então
+         I <- I-1
+      Fimse
+      Se (MN=MH) e (DN>DH) então
+         I <- I-1
+      Fimse
+      Se (MN=MH) e (DN=DH) então
+         Escreva("Parabens!! Feliz aniversário!! ")
+      Fimse
+      Escreva("Você tem ", I, " anos")
+fimalgoritmo
