@@ -1,0 +1,14 @@
+algoritmo "O número é par ou impar? "
+var
+   Nu: inteiro
+   R: Real
+inicio
+      Escreval("Digite o número que voçê deseja saber se é par ou ímpar: ")
+      leia (Nu)
+      R <- (Nu % 2)
+      Se R = 0 entao
+         Escreval("Esse número é PAR ")
+      Senão
+           Escreval("Esse número é IMPAR ")
+      Fimse
+fimalgoritmo

@@ -1,0 +1,24 @@
+algoritmo "semnome"
+var
+   Ano, Ano_nas, Res:Inteiro
+inicio
+      Escreval("-------------------------")
+      Escreval("Departamento de transito ")
+      Escreval("-------------------------")
+      Escreval("Qual o ano atual? ")
+      Leia(Ano)
+      Escreval("Qual o ano em que voçê nasceu? ")
+      Leia(Ano_nas)
+      Res <- Ano - Ano_nas
+      Se Res >= 18 entao
+         Escreval("----------------STATUS---------------------- ")
+         Escreval("Voçê tem ", Res)
+         Escreval("Voçê pode tirar a sua carteira de motorista")
+         Escreval("-------------------------------------------- ")
+      Senao
+           Escreval("---------------STATUS--------------------- ")
+           Escreval("Voçê tem ", Res)
+           Escreval("Voçê NÃO pode tirar a carteira de motorista")
+           Escreval("-------------------------------------------- ")
+      Fimse
+fimalgoritmo

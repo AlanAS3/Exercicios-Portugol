@@ -1,0 +1,27 @@
+algoritmo "Jogo de futebol"
+var
+   T1, T2:Caractere
+   Gol_T1,Gol_T2, Dif:Inteiro
+inicio
+      Escreval("Escolha time 1: ")
+      Leia(T1)
+      Escreval("Escolha time 2: ")
+      Leia(T2)
+      limpatela
+      Escreval("----------------------------")
+      Escreval(          T1, " e ", T2       )
+      Escreval("----------------------------")
+      Escreval("Quantidade de gols do ", T1)
+      Leia(Gol_T1)
+      Escreval("Quantidade de gols do ", T2)
+      Leia(Gol_T2)
+      Dif <- Abs(Gol_T1 - Gol_T2)
+      Escolha (Dif)
+              Caso 0
+                   Escreval("EMPATE")
+              Caso 1, 2, 3, 4
+                   Escreval("JOGO NORMAL")
+              Outrocaso
+                       Escreval("GOLEADA")
+      Fimescolha
+fimalgoritmo
