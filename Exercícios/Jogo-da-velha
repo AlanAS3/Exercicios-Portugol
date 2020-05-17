@@ -1,0 +1,195 @@
+algoritmo "semnome"
+var
+M: vetor [1..3, 1..3] de Caractere
+Reserva: vetor [1..3, 1..3] de caractere
+L, C, N, Empate: inteiro
+Res, Vencer:Caractere
+Procedimento ChecagemX ()
+Var
+A,B:Inteiro
+Inicio
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+                Se (Res = Reserva[A,B]) e ((M[A,B] = "X") ou (M[A,B] = "O")) entao
+                   Escreval("-- POSIÇÃO INVALIDA --")
+                   Escreva(" Vai jogar [X] em qual posição? ")
+                   Leia (Res)
+                   ChecagemX()
+                Fimse
+           FimPara
+      FimPara
+FimProcedimento
+Procedimento ChecagemO()
+Var
+A,B:Inteiro
+Inicio
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+           Se (Res = Reserva[A,B]) e ((M[A,B] = "O") ou (M[A,B] = "X")) entao
+              Escreval("-- POSIÇÃO INVALIDA --")
+              Escreva(" Vai jogar [O] em qual posição? ")
+              Leia (Res)
+              ChecagemO()
+           Fimse
+           FimPara
+      FimPara
+FimProcedimento
+Procedimento Tela()
+Inicio
+             Escreval(" JOGO DA VELHA ")
+             Escreval()
+             Para L <- 1 ate 3 faca
+                  Escreval("|================|")
+                  Para C <- 1 ate 3 faca
+                  Escreva("| ", M[L,C]:4)
+             FimPara
+             Escreval()
+             FimPara
+             Escreval("|================|")
+	     Escreval()	
+FimProcedimento
+Procedimento JogadorX()
+Inicio
+             Escreva(" Vai jogar [X] em qual posição? ")
+             Leia (Res)
+             ChecagemX()
+             Para L <- 1 ate 3 faca
+                  Para C <- 1 ate 3 faca
+                       Se (Res = M[L,C]) entao
+                          Reserva[L,C] <- M[L,C]
+                          M[L,C] <- "X"
+                       Fimse
+                  FimPara
+             FimPara
+             Se (M[1,1] = "X") e (M[1,2] = "X") e (M[1,3] = "X")  então
+                Res <- "VOCÊ VENCEU"
+             Fimse
+FimProcedimento
+Procedimento JogadorO()
+Inicio
+      Escreva(" Vai jogar [O] em qual posição? ")
+      Leia (Res)
+      ChecagemO()
+      Para L <- 1 ate 3 faca
+           Para C <- 1 ate 3 faca
+                Se (Res = M[L,C]) entao
+                Reserva[L,C] <- M[L,C]
+                M[L,C] <- "O"
+                Fimse
+           FimPara
+      FimPara
+FimProcedimento
+Procedimento Checa_Vencedor()
+Var
+   A,B,CeVX,CeVO,Diag_InX,Diag_InO:Inteiro
+Inicio
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+                Se (M[A,B] = "X") entao
+                   CeVX <- CeVX + 1
+                FimSe
+                Se (M[A,B] = "O") entao
+                   CeVO <- CeVO + 1
+                FimSe
+           FimPara
+           Se (CeVX = 3) ou (CeVO = 3) entao
+              Escreval()
+              Escreval(" VOCÊ VENCEU!!!")
+              Fimalgoritmo
+           Senão
+                CeVX <- 0
+                CeVO <- 0
+           FimSe
+      FimPara
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+                Se (M[B,A] = "X") entao
+                   CeVX <- CeVX + 1
+                Fimse
+                Se (M[B,A] = "O") entao
+                   CeVO <- CeVO + 1
+                Fimse
+           FimPara
+           Se (CeVX = 3) ou (CeVO = 3) entao
+              Escreval()
+              Escreval(" VOCÊ VENCEU!!")
+              FimAlgoritmo
+           SeNão
+                CeVX <- 0
+                CeVO <- 0
+           FimSe
+      FimPara
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+                Se (A = B) e (M[A,B] = "X") entao
+                   CeVX <- CeVX + 1
+                FimSe
+                Se (A = B) e (M[A,B] = "O") entao
+                   CeVO <- CeVO + 1
+                FimSe
+                Se (B = 3) e (A = 1) e (M[A,B] = "X") entao
+                   Diag_InX <- Diag_InX + 1
+                FimSe
+                Se (B = 2) e (A = 2) e (M[A,B] = "X") entao
+                   Diag_InX <- Diag_InX + 1
+                FimSe
+                Se (B = 1) e (A = 3) e (M[A,B] = "X") entao
+                   Diag_InX <- Diag_InX + 1
+                FImSe
+                Se (B = 3) e (A = 1) e (M[A,B] = "O") entao
+                   Diag_InO <- Diag_InO + 1
+                FimSe
+                Se (B = 2) e (A = 2) e (M[A,B] = "O") entao
+                   Diag_InO <- Diag_InO + 1
+                FimSe
+                Se (B = 1) e (A = 3) e (M[A,B] = "O") entao
+                   Diag_InO <- Diag_InO + 1
+                FimSe
+           FimPara
+      FimPara
+      Se (CeVX = 3) ou (CeVO = 3) ou (Diag_InX = 3) ou (Diag_InO = 3) entao
+         Escreval()
+         Escreval(" VOCÊ VENCEU!!")
+         Fimalgoritmo
+      SeNão
+           CeVX <- 0
+           CeVO <- 0
+           Diag_InX <- 0
+           Diag_InO <- 0
+      FimSe
+      Para A <- 1 ate 3 faca
+           Para B <- 1 ate 3 faca
+                Se (M[A,B] = "X") ou (M[A,B] = "O") entao
+                   Empate <- Empate + 1
+                Fimse
+           FimPara
+      FimPara
+      Se (Empate = 9) entao
+         Escreval(" EMPATE!!")
+      Senão
+           Empate <- 0
+      FimSe
+                
+FimProcedimento
+inicio
+      M[1,1] <- "1"
+      M[1,2] <- "2"
+      M[1,3] <- "3"
+      M[2,1] <- "4"
+      M[2,2] <- "5"
+      M[2,3] <- "6"
+      M[3,1] <- "7"
+      M[3,2] <- "8"
+      M[3,3] <- "9"
+      Repita
+            Tela()
+            Checa_Vencedor()
+            JogadorX()
+            Limpatela
+            Tela()
+            Checa_Vencedor()
+            JogadorO()
+            Limpatela
+      Até (Empate = 9)
+fimalgoritmo
+      
